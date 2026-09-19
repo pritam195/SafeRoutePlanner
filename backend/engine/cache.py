@@ -15,8 +15,9 @@ import numpy as np
 # Cache directory configuration
 BACKEND_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BACKEND_DIR, "data")
-CACHE_DIR = os.path.join(DATA_DIR, "cache")
+import tempfile
 
+CACHE_DIR = os.path.join(tempfile.gettempdir(), "saferoute_cache")
 os.makedirs(CACHE_DIR, exist_ok=True)
 
 _memory_cache = {}
